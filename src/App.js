@@ -6,29 +6,73 @@ import {
   Routes,
   Route,
   Link,
-  BrowserRouter
+  BrowserRouter, Navigate
 } from "react-router-dom";
 import List from './pages/list/List'
 import Single from "./pages/single/Single"
 import New from "./pages/new/New"
+import "./style/dark.scss";
+import { useContext } from "react";
+import { DarkModeContext } from "./context/darkModeContext";
+import { AuthContext } from "./context/AuthContext";
+import { userInputs } from "./formSource";
 function App() {
+  const { darkMode } = useContext(DarkModeContext);
+
+  const {currentUser} = useContext(AuthContext)
+  const RequireAuth = ({ children }) => {
+    return currentUser ? children : <Navigate to="/login" />;
+  };
   return (
-    <div className="App">
+    <div className={darkMode ? "app dark" : "app"}>
         <BrowserRouter>
           <Routes>
             <Route path="/">
                 {/* so basically it is going to use this main path /
                 after / if we write /login it will be directed to /login component */}
-                <Route index element={<Home />} />
-                <Route path="login" element={<Login />} />
+                <Route  path="login" element={<Login />} />
+                <Route 
+                index
+                element=
+                  {
+                  <RequireAuth>
+                  <Home />
+                  </RequireAuth>
+                  } />
+                
             </Route>
             <Route path="users">
               {/* user basically land hoga list vale component me
               jiska naam hai users and uske andar users/12 aise userid ho sakta hai   */}
-              <Route index element={<List />} />
-              <Route path=":userId" element={<Single />} />
-              <Route path="new" element={<New />}/>           
+              <Route 
+              index 
+              element={
+              <RequireAuth>
+                <List />
+              </RequireAuth>
+              } />
+              <Route path=":userId" element={
+              <RequireAuth>
+                 <Single />
+              </RequireAuth>
+             
+              } />
+              <Route
+                path="new"
+                element={
+                  <RequireAuth>
+                    <New inputs={userInputs} title="Add New User" />
+                  </RequireAuth>
+                }
+              />         
             </Route> 
+            {/* <Route path="details"> */}
+              {/* user basically land hoga list vale component me
+              jiska naam hai users and uske andar users/12 aise userid ho sakta hai   */}
+              {/* <Route index element={<List />} />
+              <Route path=":studentId" element={<Single />} />
+              <Route path="new" element={<New />}/>            */}
+            {/* </Route>  */}
           </Routes>
         </BrowserRouter>
     </div>
