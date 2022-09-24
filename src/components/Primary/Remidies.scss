@@ -1,0 +1,30 @@
+.row {
+    margin: 20px;
+
+    float: left;
+}
+
+.row h1 {
+    text-align: left;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+}
+
+.row h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 25px;
+}
+
+.row p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 25px;
+}
+
+.row img {
+    justify-content: end;
+
+}
+
+#col1 {
+    float: right;
+}

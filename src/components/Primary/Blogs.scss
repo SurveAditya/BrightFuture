@@ -1,0 +1,44 @@
+#section body {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#section {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    width: 20%;
+    margin-bottom:0;
+}
+
+#section img {
+    height: 250px;
+}
+
+h1 {
+   margin-top: 5px;
+}
+
+#section h1 {
+    margin: 15px;
+    color: #072ac8;
+}
+
+#section p {
+    color: #080708;
+    margin-right: 15px;
+}
+
+#section h2 {
+    color: #072ac8;
+}
+
+.text {
+    padding: 15px;
+    margin: 15px;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+}

@@ -4,6 +4,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 import {AuthContext} from "../../context/AuthContext"
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [error, setError] = useState(false);
@@ -32,7 +33,23 @@ const Login = () => {
   };
 
   return (
+    <>
+    <div id="container">
+		<nav id="navbar">
+			<ul>
+				<li><Link to='/login'>Login</Link></li>
+
+				<li><Link to='/Assignment'>Assignment Section</Link></li>
+
+				<li><Link to='/Blogs'>Blogs</Link></li>
+
+				<li><Link to='/Remidies'>Remedies</Link></li>
+			</ul>
+		</nav>
+	</div>
+    <h1>Login</h1>
     <div className="login">
+      
       <form onSubmit={handleLogin}>
         <input
           type="email"
@@ -48,6 +65,7 @@ const Login = () => {
         {error && <span>Wrong email or password!</span>}
       </form>
     </div>
+    </>
   );
 };
 

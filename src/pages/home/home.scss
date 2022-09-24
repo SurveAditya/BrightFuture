@@ -3,14 +3,23 @@
   
     .homeContainer {
       flex: 6;
-  
+    
+
+      }
+      div.title{
+        font-size: 40px;
+      }
+
       .widgets,
       .charts {
-        display: flex;
+
         padding: 20px;
         gap: 20px;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-auto-flow: row;
+        gap: 1rem;
       }
-  
       .charts {
         padding: 5px 20px;
       }
@@ -28,4 +37,4 @@
         }
       }
     }
-  }
+  

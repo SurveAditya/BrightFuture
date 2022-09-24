@@ -16,6 +16,11 @@ import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
 import { userInputs } from "./formSource";
+import Blogs from "../src/components/Primary/Blogs"
+import Remidies from "../src/components/Primary/Remidies"
+import Assignment from "../src/components/Primary/Assignment"
+// import NavbarV2 from "./components/nav2/NavbarV2";
+// import Bodyv2 from "./components/body2/Bodyv2";
 function App() {
   const { darkMode } = useContext(DarkModeContext);
 
@@ -30,7 +35,7 @@ function App() {
             <Route path="/">
                 {/* so basically it is going to use this main path /
                 after / if we write /login it will be directed to /login component */}
-                <Route  path="login" element={<Login />} />
+                <Route  path="login" element={<Login/>} />
                 <Route 
                 index
                 element=
@@ -66,6 +71,7 @@ function App() {
                 }
               />         
             </Route> 
+
             {/* <Route path="details"> */}
               {/* user basically land hoga list vale component me
               jiska naam hai users and uske andar users/12 aise userid ho sakta hai   */}
@@ -73,7 +79,11 @@ function App() {
               <Route path=":studentId" element={<Single />} />
               <Route path="new" element={<New />}/>            */}
             {/* </Route>  */}
+          <Route path="/Blogs" element={<Blogs />} />
+          <Route path="/Remidies" element={<Remidies />} />
+          <Route path="/Assignment" element={<Assignment />} />
           </Routes>
+
         </BrowserRouter>
     </div>
   );
